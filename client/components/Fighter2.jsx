@@ -13,7 +13,6 @@ export class Fighter2 extends Component {
   componentDidMount () {
     getPeople()
       .then(response => {
-        console.log(response)
         this.setState({
           name: response.body[randomID].name,
           score: response.body[0].score

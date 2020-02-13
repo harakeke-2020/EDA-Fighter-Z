@@ -6,7 +6,6 @@ export class Picture2 extends Component {
     return (
       <div className="PictureBox">
         <div className="Picture">
-
         </div>
       </div>
     )

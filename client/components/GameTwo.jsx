@@ -5,7 +5,7 @@ export class GameTwo extends Component {
   render () {
     return (
       <div>
-
+        <p> How long did Brendan Eich take to write the JavaScript programming language?</p>
       </div>
     )
   }
