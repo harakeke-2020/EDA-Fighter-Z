@@ -13,13 +13,19 @@ import GameThree from './GameThree'
 import Win1 from './Win1'
 import Win2 from './Win2'
 
-export class App extends Component {
-  constructor (props) {
-    super(props)
+import { getdbz } from '../api/dbz'
+import { addImage1, addImage2 } from '../actions'
 
-    this.state = {
-      demo: true
-    }
+export class App extends Component {
+  state = {
+    demo: true
+  }
+
+  componentDidMount () {
+    getdbz()
+      .then(data => this.props.dipatch.addImage1(data))
+    getdbz()
+      .then(data => this.props.dipatch.addImage2(data))
   }
 
   render () {

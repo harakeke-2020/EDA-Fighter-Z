@@ -84,10 +84,17 @@ button:hover h2 {
 }
 
 .PictureBox {
-  height: 300px;
+
   width: 33%;
   text-align: center;
 }
+
+.PictureBox{
+  height: 300px;
+  border:3px solid #FFFFFF;
+  padding: 0px;
+}
+
 
 .Vs {
   margin-top: 120px;
