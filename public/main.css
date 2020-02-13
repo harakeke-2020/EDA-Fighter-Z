@@ -1,12 +1,146 @@
-.dot {
-  width: 2rem;
-  height: 2rem;
-  border: 1px #ccc solid;
-  border-radius: 50%;
+@font-face {
+  font-family: 'act_of_rejectionregular';
+  src: url('act_of_rejection-webfont.woff2') format('woff2'),
+       url('act_of_rejection-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
+body {
+  font-family: act_of_rejectionregular;
+  background-color: black;
+  padding: 0px;
+  margin: 0px;
+}
+
+h1 {
+  font-family: act_of_rejectionregular;
+  color: white;
+  font-size: 50px;
+  margin: 10px;
+}
+
+h2 {
+  color: white;
+  font-size: 24px;
+}
+
+h3 {
+  color: white;
+  font-size: 16px;
+}
+
+p {
+  color: white;
+  font-size: 14px;
+  margin: 10px;
+}
+
+/* Buttons */
+
 button {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
+  font-family: act_of_rejectionregular;
+  display:inline-block;
+  padding:4px 50px;
+  border:3px solid #FFFFFF;
+  border-radius:10px;
+  box-sizing: border-box;
+  text-decoration:none;
+  background-color: black;
+  color: black;
+  text-align:center;
+  transition: all 0.2s;
+}
+button:hover {
+  color: black;
+  background-color: white;
+}
+
+button:hover h2 {
+  color: black
+}
+
+/* Components */
+
+.Picture {
+  display: inline-block;
+  border:3px solid #FFFFFF;
+  padding: 0px;
+}
+
+.Name {
+  width: 33%;
+  text-align: center;
+}
+
+.Button {
+  width: 33%;
+  text-align: center;
+}
+
+.Win {
+  width: 33%;
+  text-align: center;
+}
+
+.PictureBox {
+  height: 300px;
+  width: 33%;
+  text-align: center;
+}
+
+.Vs {
+  margin-top: 120px;
+text-align: center;
+  width: 33%;
+}
+
+.title {
+  width: 33%;
+  text-align: center;
+}
+
+.HpLeft {
+  width: 33%;
+  margin-top: 15px;
+text-align: center;
+}
+
+.Header {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px white;
+}
+
+
+
+/* Flex boxes */
+
+.Space {
+  width: 33%;
+}
+
+.Display {
+  display: flex;
+  flex-direction: column
+}
+
+.Arena {
+  display: flex;
+  flex-direction: column
+}
+
+.Fighters {
+  display: flex;
+  flex-direction: row
+}
+
+.Section {
+  display: flex;
+  flex-direction: row
+}
+
+.Buttons {
+  display: flex;
+  flex-direction: row
 }
