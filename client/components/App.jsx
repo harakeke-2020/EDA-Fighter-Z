@@ -44,11 +44,12 @@ export class App extends Component {
             <Win1 />
             <GenerateButton />
             <Win2 />
-            { this.state.demo
-              ? <GameOne id="1"/>
-              : <div><GameTwo id="2"/> <GameThree id="3"/></div>
-            }
           </div>
+          { this.state.demo
+            ? <GameOne id="1"/>
+            : <div><GameTwo id="2"/> <GameThree id="3"/></div>
+          }
+
         </div>
       </div>
     )
