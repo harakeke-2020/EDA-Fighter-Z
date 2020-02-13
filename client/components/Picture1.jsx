@@ -2,10 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getdbz } from '../api/dbz'
 
-const randomNumber = Math.floor(Math.random() * Math.floor(18))
+// const randomNumber = Math.floor(Math.random() * Math.floor(18))
 
-export class Picture1 extends Component {
-
+export function Picture1 (props) {
   // componentDidMount () {
   //   getdbz()
   //     .then(response => response.body)
@@ -18,19 +17,17 @@ export class Picture1 extends Component {
   //     })
   // }
 
-  render () {
-    return (
-      <div className="PictureBox">
-        <div className="Picture">
-          <img src={this.props.image} />
-        </div>
+  return (
+    <div className="PictureBox">
+      <div className="Picture">
+        <img src={props.pic} height="350px"/>
       </div>
-    )
-  }
+    </div>
+  )
 }
 
-function mapStateToProps (store) {
-  return { image: store.image1 }
-}
+// function mapStateToProps (store) {
+//   return { image: store.image1 }
+// }
 
-export default connect(mapStateToProps)(Picture1)
+export default Picture1

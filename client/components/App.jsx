@@ -17,49 +17,65 @@ import { getdbz } from '../api/dbz'
 import { addImage1, addImage2 } from '../actions'
 
 export class App extends Component {
-  state = {
-    demo: true
-  }
+ state = {
+   image1: '',
+   image2: '',
+   demo: true
+ }
 
-  buttonClicked () {
-    getdbz()
-      .then(data => props.dipatch(addImage1(data)))
-    getdbz()
-      .then(data => this.props.dipatch(addImage2(data)))
-  }
+ componentDidMount () {
+   this.buttonClicked()
+ }
 
-  render () {
-    return (
-      <div className="Display">
-        <div className="Header">
-          <h1>EDA FIGHTER Z</h1>
-          <p>Test your strength</p>
-        </div>
-        <div className="Arena">
-          <div className="Fighters">
-            <Fighter1 />
-            <div className="Space"></div>
-            <Fighter2 />
-          </div>
-          <div className="Section">
-            <Picture1 />
-            <Vs />
-            <Picture2 />
-          </div>
-          <div className="Buttons">
-            <Win1 />
-            <GenerateButton buttonClicked={this.buttonClicked}/>
-            <Win2 />
-          </div>
-          { this.state.demo
-            ? <GameOne id="1"/>
-            : <div><GameTwo id="2"/> <GameThree id="3"/></div>
-          }
+ buttonClicked = () => {
+   getdbz()
+     .then(data => data.body.resp.message)
+     .then((data) => {
+       this.setState({
+         image1: data
+       })
+     })
+   getdbz()
+     .then(data => data.body.resp.message)
+     .then((data) => {
+       this.setState({
+         image2: data
+       })
+     })
+ }
 
-        </div>
-      </div>
-    )
-  }
+ render () {
+   return (
+     <div className="Display">
+       <div className="Header">
+         <h1>EDA FIGHTER Z</h1>
+         <p>Test your strength</p>
+       </div>
+       <div className="Arena">
+         <div className="Fighters">
+           <Fighter1 />
+           <div className="Space"></div>
+           <Fighter2 />
+         </div>
+         <div className="Section">
+           <Picture1 pic={this.state.image1}/>
+           <Vs />
+           <Picture2 pic={this.state.image2}/>
+         </div>
+         <div className="Buttons">
+           <Win1 />
+           <GenerateButton buttonClicked={this.buttonClicked}/>
+           <Win2 />
+         </div>
+         { this.state.demo
+           ? <GameOne id="1"/>
+           : <div><GameTwo id="2"/> <GameThree id="3"/></div>
+         }
+
+       </div>
+     </div>
+   )
+ }
 }
 
 export default connect()(App)
