@@ -1,7 +1,7 @@
-import {combineReducers} from 'redux'
+import { combineReducers } from 'redux'
 
-import words from './words'
+import dbz from './dbz'
 
 export default combineReducers({
-  words
+  dbz
 })
