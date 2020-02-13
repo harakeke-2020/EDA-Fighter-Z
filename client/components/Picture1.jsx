@@ -5,9 +5,6 @@ import { getdbz } from '../api/dbz'
 const randomNumber = Math.floor(Math.random() * Math.floor(18))
 
 export class Picture1 extends Component {
-  state = {
-    image: []
-  }
 
   // componentDidMount () {
   //   getdbz()
@@ -25,11 +22,15 @@ export class Picture1 extends Component {
     return (
       <div className="PictureBox">
         <div className="Picture">
-          <img src={this.state.image} />
+          <img src={this.props.image} />
         </div>
       </div>
     )
   }
 }
 
-export default connect()(Picture1)
+function mapStateToProps (store) {
+  return { image: store.image1 }
+}
+
+export default connect(mapStateToProps)(Picture1)

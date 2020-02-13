@@ -5,7 +5,7 @@ export class Vs extends Component {
   render () {
     return (
       <div className="Vs">
-        <img src="Vs.png"></img>
+        <img src="Vs.png" ></img>
       </div>
     )
   }

@@ -21,11 +21,11 @@ export class App extends Component {
     demo: true
   }
 
-  componentDidMount () {
+  buttonClicked () {
     getdbz()
-      .then(data => this.props.dipatch.addImage1(data))
+      .then(data => props.dipatch(addImage1(data)))
     getdbz()
-      .then(data => this.props.dipatch.addImage2(data))
+      .then(data => this.props.dipatch(addImage2(data)))
   }
 
   render () {
@@ -48,13 +48,14 @@ export class App extends Component {
           </div>
           <div className="Buttons">
             <Win1 />
-            <GenerateButton />
+            <GenerateButton buttonClicked={this.buttonClicked}/>
             <Win2 />
-            { this.state.demo
-              ? <GameOne id="1"/>
-              : <div><GameTwo id="2"/> <GameThree id="3"/></div>
-            }
           </div>
+          { this.state.demo
+            ? <GameOne id="1"/>
+            : <div><GameTwo id="2"/> <GameThree id="3"/></div>
+          }
+
         </div>
       </div>
     )

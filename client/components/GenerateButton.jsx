@@ -5,7 +5,7 @@ export class GenerateButton extends Component {
   render () {
     return (
       <div className="Win">
-        <button>Generate</button>
+        <button onClick={this.props.buttonClicked}>Generate</button>
       </div>
     )
   }

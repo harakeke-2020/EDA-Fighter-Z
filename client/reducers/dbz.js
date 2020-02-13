@@ -5,28 +5,21 @@ const intialState = {
   image2Id: 0
 }
 
-const character1 = (state = intialState, action) => {
+const dbz = (state = intialState, action) => {
   switch (action.type) {
     case 'DBZ_IMG_1':
       return {
-        image1: action.image,
-        image1Id: action.id
+        image1: action.image1,
+        image1Id: action.image1Id
       }
-    default:
-      return state
-  }
-}
-
-const character2 = (state = intialState, action) => {
-  switch (action.type) {
     case 'DBZ_IMG_2':
       return {
-        image2: action.image,
-        image2Id: action.id
+        image2: action.image2,
+        image2Id: action.image2Id
       }
     default:
       return state
   }
 }
 
-export default { character1, character2 }
+export default dbz

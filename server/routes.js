@@ -4,7 +4,7 @@ const request = require('superagent')
 const router = express.Router()
 
 const api = {
-  dbz: 'https://dragon-ball-api.herokuapp.com/api/character/'
+  dbz: 'https://dog.ceo/api/breeds/image/random'
 }
 
 router.get('/dbz', (req, res) => {
