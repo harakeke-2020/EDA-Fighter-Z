@@ -7,6 +7,13 @@ function getPeople (id, db = database) {
     .select()
 }
 
+function getGame (id, db = database) {
+  return db('game')
+    .where('game.id', id)
+    .select()
+}
+
 module.exports = {
-  getPeople
+  getPeople,
+  getGame
 }

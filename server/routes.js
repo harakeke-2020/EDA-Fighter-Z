@@ -26,4 +26,11 @@ router.get('/people', (req, res) => {
     })
 })
 
+router.get('/game', (req, res) => {
+  const id = Number(Math.floor(Math.random() * Math.floor(5) + 1))
+  return db.getGame(id)
+    .then(game => {
+      res.json(game)
+    })
+})
 module.exports = router

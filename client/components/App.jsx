@@ -16,8 +16,8 @@ import Win2 from './Win2'
 import { getdbz } from '../api/dbz'
 import { addImage1, addImage2 } from '../actions'
 import getPeople from '../api/people'
+import getGame from '../api/game'
 
-1
 export class App extends Component {
  state = {
    image1: '',
@@ -26,6 +26,7 @@ export class App extends Component {
    name2: '',
    id1: 0,
    id2: 0,
+   question: '',
    demo: true
  }
 
@@ -64,6 +65,12 @@ export class App extends Component {
            name2: data.body[0].name
          })
        }))
+   getGame()
+     .then(data => {
+       this.setState({
+         question: data.body[0].description
+       })
+     })
  }
 
  render () {
@@ -90,7 +97,7 @@ export class App extends Component {
            <Win2 />
          </div>
          { this.state.demo
-           ? <GameOne id="1"/>
+           ? <GameOne id="1" question={this.state.question}/>
            : <div><GameTwo id="2"/> <GameThree id="3"/></div>
          }
 
