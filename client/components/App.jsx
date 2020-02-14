@@ -73,6 +73,10 @@ export class App extends Component {
      })
  }
 
+ //  update = (id) => {
+ //    updScore(id)
+ //  }
+
  render () {
    return (
      <div className="Display">

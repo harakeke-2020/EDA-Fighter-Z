@@ -13,7 +13,21 @@ function getGame (id, db = database) {
     .select()
 }
 
+function updScore (id, db = database) {
+  let currentScore = 0
+  return db('people')
+    .where('id', id)
+    .select('score')
+    .then(data => { currentScore = data + 1 })
+    .then(() => {
+      return db('people')
+        .where('id', id)
+        .update({ score: currentScore })
+    })
+}
+
 module.exports = {
   getPeople,
-  getGame
+  getGame,
+  updScore
 }

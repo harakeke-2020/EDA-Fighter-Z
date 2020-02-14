@@ -33,4 +33,13 @@ router.get('/game', (req, res) => {
       res.json(game)
     })
 })
+router.put('/people/:id', (req, res) => {
+  return db.updScore(req.params.id)
+    .then(data => {
+      data === 1
+        ? res.send('Win logged')
+        : res.send('error')
+    })
+})
+
 module.exports = router
