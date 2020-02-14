@@ -5,7 +5,7 @@ export class Win2 extends Component {
   render () {
     return (
       <div className="Win">
-        <button>Win</button>
+        <button onClick={this.props.update}>Win</button>
       </div>
     )
   }

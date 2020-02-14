@@ -17,12 +17,21 @@ router.get('/dbz', (req, res) => {
 }
 )
 
-router.get('/people', (req, res) => {
+router.get('/people/:id', (req, res) => {
   const id = Number(Math.floor(Math.random() * Math.floor(12) + 1))
   return db.getPeople(id)
     .then(people => {
       console.log
       res.json(people)
+    })
+})
+
+router.put('/people/:id', (req, res) => {
+  return db.updScore(req.params.id)
+    .then(data => {
+      data === 1
+        ? res.send('Win logged')
+        : res.send('error')
     })
 })
 

@@ -20,7 +20,7 @@ export function Picture1 (props) {
   return (
     <div className="PictureBox">
       <div className="Picture">
-        <img src={props.pic} height="350px"/>
+        <img src={props.pic} height="350px" />
       </div>
     </div>
   )

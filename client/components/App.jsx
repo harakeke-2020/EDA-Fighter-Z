@@ -66,6 +66,10 @@ export class App extends Component {
        }))
  }
 
+ update = (id) => {
+   updScore(id)
+ }
+
  render () {
    return (
      <div className="Display">
@@ -85,9 +89,9 @@ export class App extends Component {
            <Picture2 pic={this.state.image2}/>
          </div>
          <div className="Buttons">
-           <Win1 />
+           <Win1 update={this.update(this.state.id2)}/>
            <GenerateButton buttonClicked={this.buttonClicked}/>
-           <Win2 />
+           <Win2 update={this.update(this.state.id2)}/>
          </div>
          { this.state.demo
            ? <GameOne id="1"/>
