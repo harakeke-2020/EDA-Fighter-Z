@@ -32,8 +32,9 @@ h3 {
 
 p {
   color: white;
-  font-size: 18px;
+  font-size: 25px;
   margin: 10px;
+  font-family: 'VT323', monospace;
 }
 
 /* Buttons */
@@ -112,7 +113,7 @@ text-align: center;
 }
 
 .GameBox {
-  padding: 20px 27% 20px 27%;
+  padding: 20px 20% 20px 20%;
   margin-top: 50px;
   text-align: justify;
 }
@@ -146,7 +147,7 @@ text-align: center;
 }
 
 .Buttons {
-  margin: 20px;
+  margin-top: 20px;
   display: flex;
   flex-direction: row
 }

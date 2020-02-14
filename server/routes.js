@@ -1,5 +1,6 @@
 const express = require('express')
 const request = require('superagent')
+const db = require('../server/db')
 
 const router = express.Router()
 
@@ -11,10 +12,27 @@ router.get('/dbz', (req, res) => {
   return request.get(api.dbz)
     .then(response => {
       const resp = response.body
-      console.log(resp)
       res.json({ resp })
     })
 }
 )
+
+router.get('/people/:id', (req, res) => {
+  const id = Number(Math.floor(Math.random() * Math.floor(12) + 1))
+  return db.getPeople(id)
+    .then(people => {
+      console.log
+      res.json(people)
+    })
+})
+
+router.put('/people/:id', (req, res) => {
+  return db.updScore(req.params.id)
+    .then(data => {
+      data === 1
+        ? res.send('Win logged')
+        : res.send('error')
+    })
+})
 
 module.exports = router

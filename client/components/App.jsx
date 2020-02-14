@@ -15,11 +15,17 @@ import Win2 from './Win2'
 
 import { getdbz } from '../api/dbz'
 import { addImage1, addImage2 } from '../actions'
+import getPeople from '../api/people'
 
+1
 export class App extends Component {
  state = {
    image1: '',
    image2: '',
+   name1: '',
+   name2: '',
+   id1: 0,
+   id2: 0,
    demo: true
  }
 
@@ -42,6 +48,26 @@ export class App extends Component {
          image2: data
        })
      })
+   getPeople()
+     .then(data => {
+       console.log(data.body)
+       this.setState({
+         id1: data.body[0].id,
+         name1: data.body[0].name
+       })
+     })
+     .then(getPeople()
+       .then(data => {
+         console.log(data.body)
+         this.setState({
+           id2: data.body[0].id,
+           name2: data.body[0].name
+         })
+       }))
+ }
+
+ update = (id) => {
+   updScore(id)
  }
 
  render () {
@@ -53,9 +79,9 @@ export class App extends Component {
        </div>
        <div className="Arena">
          <div className="Fighters">
-           <Fighter1 />
+           <Fighter1 name={this.state.name1}/>
            <div className="Space"></div>
-           <Fighter2 />
+           <Fighter2 name={this.state.name2}/>
          </div>
          <div className="Section">
            <Picture1 pic={this.state.image1}/>
@@ -63,9 +89,9 @@ export class App extends Component {
            <Picture2 pic={this.state.image2}/>
          </div>
          <div className="Buttons">
-           <Win1 />
+           <Win1 update={this.update(this.state.id2)}/>
            <GenerateButton buttonClicked={this.buttonClicked}/>
-           <Win2 />
+           <Win2 update={this.update(this.state.id2)}/>
          </div>
          { this.state.demo
            ? <GameOne id="1"/>
