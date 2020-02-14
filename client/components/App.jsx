@@ -17,6 +17,7 @@ import { getdbz } from '../api/dbz'
 import { addImage1, addImage2 } from '../actions'
 import getPeople from '../api/people'
 import getGame from '../api/game'
+import updScore from '../api/upd'
 
 export class App extends Component {
  state = {
@@ -73,42 +74,42 @@ export class App extends Component {
      })
  }
 
- //  update = (id) => {
- //    updScore(id)
- //  }
+  update = (id) => {
+    updScore(id)
+  }
 
- render () {
-   return (
-     <div className="Display">
-       <div className="Header">
-         <h1>EDA FIGHTER Z</h1>
-         <p>Test your strength</p>
-       </div>
-       <div className="Arena">
-         <div className="Fighters">
-           <Fighter1 name={this.state.name1}/>
-           <div className="Space"></div>
-           <Fighter2 name={this.state.name2}/>
-         </div>
-         <div className="Section">
-           <Picture1 pic={this.state.image1}/>
-           <Vs />
-           <Picture2 pic={this.state.image2}/>
-         </div>
-         <div className="Buttons">
-           <Win1 />
-           <GenerateButton buttonClicked={this.buttonClicked}/>
-           <Win2 />
-         </div>
-         { this.state.demo
-           ? <GameOne id="1" question={this.state.question}/>
-           : <div><GameTwo id="2"/> <GameThree id="3"/></div>
-         }
+  render () {
+    return (
+      <div className="Display">
+        <div className="Header">
+          <h1>EDA FIGHTER Z</h1>
+          <p>Test your strength</p>
+        </div>
+        <div className="Arena">
+          <div className="Fighters">
+            <Fighter1 name={this.state.name1}/>
+            <div className="Space"></div>
+            <Fighter2 name={this.state.name2}/>
+          </div>
+          <div className="Section">
+            <Picture1 pic={this.state.image1}/>
+            <Vs />
+            <Picture2 pic={this.state.image2}/>
+          </div>
+          <div className="Buttons">
+            <Win1 update={this.update} id={this.state.id1}/>
+            <GenerateButton buttonClicked={this.buttonClicked}/>
+            <Win2 update={this.update} id={this.state.id2}/>
+          </div>
+          { this.state.demo
+            ? <GameOne id="1" question={this.state.question}/>
+            : <div><GameTwo id="2"/> <GameThree id="3"/></div>
+          }
 
-       </div>
-     </div>
-   )
- }
+        </div>
+      </div>
+    )
+  }
 }
 
 function mapStateToProps (state) {

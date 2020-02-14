@@ -17,8 +17,9 @@ function updScore (id, db = database) {
   let currentScore = 0
   return db('people')
     .where('id', id)
-    .select('score')
-    .then(data => { currentScore = data + 1 })
+    .select('score').first()
+    // .then(data => console.log(data))
+    .then(data => { currentScore = data.score + 1 })
     .then(() => {
       return db('people')
         .where('id', id)

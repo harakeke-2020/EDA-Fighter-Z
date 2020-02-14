@@ -17,6 +17,17 @@ router.get('/dbz', (req, res) => {
 }
 )
 
+router.put('/:id', (req, res) => {
+  console.log(req.params.id)
+  return db.updScore(req.params.id)
+    .then(data => {
+      console.log(data)
+      data === 1
+        ? res.send('Win logged')
+        : res.send('error')
+    })
+})
+
 router.get('/people', (req, res) => {
   const id = Number(Math.floor(Math.random() * Math.floor(12) + 1))
   return db.getPeople(id)
@@ -31,14 +42,6 @@ router.get('/game', (req, res) => {
   return db.getGame(id)
     .then(game => {
       res.json(game)
-    })
-})
-router.put('/people/:id', (req, res) => {
-  return db.updScore(req.params.id)
-    .then(data => {
-      data === 1
-        ? res.send('Win logged')
-        : res.send('error')
     })
 })
 

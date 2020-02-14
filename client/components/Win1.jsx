@@ -5,7 +5,7 @@ export class Win1 extends Component {
   render () {
     return (
       <div className="Win">
-        <button onClick={this.props.update}>Win</button>
+        <button onClick={() => this.props.update(this.props.id)}>Win</button>
       </div>
     )
   }

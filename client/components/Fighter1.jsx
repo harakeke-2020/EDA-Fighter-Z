@@ -5,7 +5,7 @@ export class Fighter1 extends Component {
   render () {
     return (
       <div className="Name">
-        <h2>{this.props.name}ku</h2>
+        <h2>{this.props.name}-ku</h2>
       </div>
     )
   }
